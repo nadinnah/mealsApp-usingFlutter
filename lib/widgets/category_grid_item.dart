@@ -9,7 +9,7 @@ class CategoryGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return InkWell(//makes widget tappable + feedback(splashColor) unlike gesture detector widget
       onTap: onSelectCategory ,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),

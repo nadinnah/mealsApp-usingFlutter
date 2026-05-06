@@ -17,11 +17,12 @@ class CategoriesScreen extends StatelessWidget {
         body: GridView(
           padding: const EdgeInsets.all(24),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 3 / 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20),
+              crossAxisCount: 2, //columns
+              childAspectRatio: 3 / 2, //size of grid
+              crossAxisSpacing: 20, //spacing of 20px horizontally
+              mainAxisSpacing: 20), //spacing of 20px vertically
           children: [
+            //for...in or availableCategories.map((category)=>CategoryGridItem(category: category)).toList();
             for (final category in availableCategories)
               CategoryGridItem(category: category, onSelectCategory: (){
                 _selectCategory(context);

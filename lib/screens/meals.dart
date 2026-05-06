@@ -10,10 +10,12 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     Widget content =
         ListView.builder(
           itemCount: meals.length,
           itemBuilder: (ctx, index) => Text(meals[index].title));
+
     if (meals.isEmpty) {
       content = Center(
         child: Column(
@@ -35,6 +37,7 @@ class MealsScreen extends StatelessWidget {
         ),
       );
     }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
