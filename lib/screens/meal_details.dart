@@ -27,13 +27,13 @@ class MealDetailsScreen extends StatelessWidget {
             SizedBox(height: 14,),
             Text('Ingredients', style: Theme.of(context).textTheme.titleLarge!.copyWith(color:Theme.of(context).colorScheme.primary)),
             for(final meal in meal.ingredients)
-              Text(meal,style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:Theme.of(context).colorScheme.onPrimary),)
+              Text(meal,style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:Theme.of(context).colorScheme.onSurface),)
             ,SizedBox(height: 24,),
             Text('Steps', style: Theme.of(context).textTheme.titleLarge!.copyWith(color:Theme.of(context).colorScheme.primary)),
             for(final meal in meal.steps)
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Text(meal,style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:Theme.of(context).colorScheme.onPrimary),),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Text(meal,style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:Theme.of(context).colorScheme.onSurface),),
               )
             ,SizedBox(height: 24,),
               ]),
