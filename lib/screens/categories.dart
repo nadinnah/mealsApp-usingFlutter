@@ -33,7 +33,8 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       lowerBound: 0,
       upperBound: 1,
     );
-    _animationController.forward(); //or .repeat(), which will restart the animation once it's done
+    _animationController
+        .forward(); //or .repeat(), which will restart the animation once it's done
   }
 
   @override
@@ -59,6 +60,19 @@ class _CategoriesScreenState extends State<CategoriesScreen>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _animationController,
+      builder: ((ctx, child) => SlideTransition(
+        position: Tween(
+          begin: const Offset(0, 0.3), //pushed 30% down from the screen
+          end: const Offset(0, 0),
+        ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeInOut)),
+        // position: _animationController.drive( //drive + tween to animate the position from lower & upper bound 
+        //   Tween(
+        //     begin: const Offset(0, 0.3), //pushed 30% down from the screen
+        //     end: const Offset(0, 0),
+        //   ),
+        // ),
+        child: child,
+      )),
       child: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -78,10 +92,10 @@ class _CategoriesScreenState extends State<CategoriesScreen>
             ),
         ],
       ),
-      builder: (ctx, child) => Padding(
-        padding: EdgeInsets.only(top: 100- 100*_animationController.value),
-        child: child,//for performance optimization
-      ),
+
+      // builder: (ctx, child) => Padding(
+      //   padding: EdgeInsets.only(top: 100- 100*_animationController.value),
+      //   child: child,//for performance optimization
     );
   }
 }
