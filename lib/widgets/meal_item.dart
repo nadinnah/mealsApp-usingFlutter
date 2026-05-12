@@ -23,14 +23,17 @@ class MealItem extends StatelessWidget {
         },
         child: Stack(//you use positioned widget inside the stack widget
             children: [
-          FadeInImage(
-            placeholder: MemoryImage(kTransparentImage),
-            image: NetworkImage(meal.imageUrl),
-            fit: BoxFit.cover,
-            //makes sure image is never distorted, but zoomed in
-            height: 200,
-            width:
-                double.infinity, //imp to use as much width with the 200 height
+          Hero(
+            tag: meal.id,
+            child: FadeInImage(
+              placeholder: MemoryImage(kTransparentImage),
+              image: NetworkImage(meal.imageUrl),
+              fit: BoxFit.cover,
+              //makes sure image is never distorted, but zoomed in
+              height: 200,
+              width:
+                  double.infinity, //imp to use as much width with the 200 height
+            ),
           ),
           Positioned(
               bottom: 0,
